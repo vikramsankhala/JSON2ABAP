@@ -70,6 +70,28 @@
           </ol>
         </div>
       </section>
+
+      <section class="qr-section">
+        <div class="section-header">
+          <h2>QR Code Generator</h2>
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="btn-load-qr-from-json">Load from JSON above</button>
+            <button type="button" class="btn btn-primary" id="btn-generate-qr">Generate QR Code</button>
+          </div>
+        </div>
+        <p class="qr-hint">Paste e-invoice JSON or <code>SignedQRCode</code> / <code>SignedInvoice</code> JWT below. The QR encodes the JWT for verification.</p>
+        <textarea id="qr-input" placeholder='Paste JSON with SignedQRCode/SignedInvoice, or paste the JWT directly (e.g. eyJhbGci...)'></textarea>
+        <div id="qr-error" class="error-message" aria-live="polite"></div>
+        <div id="qr-result" class="qr-result" style="display: none;">
+          <div class="qr-canvas-wrap">
+            <canvas id="qr-canvas"></canvas>
+          </div>
+          <div class="qr-decoded">
+            <h4>Decoded JWT Payload</h4>
+            <pre id="qr-payload"></pre>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -77,6 +99,8 @@
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="app.js"></script>
+  <script src="qrcode-tool.js"></script>
 </body>
 </html>

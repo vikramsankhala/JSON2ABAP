@@ -291,6 +291,95 @@ body {
 #abap-code .abap-string { color: var(--success); }
 #abap-code .abap-comment { color: var(--text-secondary); }
 
+/* QR Code section */
+.qr-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.qr-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.qr-hint code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--bg-tertiary);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+#qr-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+#qr-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.qr-result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.qr-canvas-wrap {
+  flex-shrink: 0;
+  padding: 1rem;
+  background: #fff;
+  border-radius: var(--radius);
+}
+
+.qr-canvas-wrap canvas {
+  display: block;
+}
+
+.qr-decoded {
+  flex: 1;
+  min-width: 200px;
+}
+
+.qr-decoded h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.qr-decoded pre {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
 /* Footer */
 .footer {
   margin-top: 2rem;
