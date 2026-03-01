@@ -51,6 +51,24 @@
           <button type="button" class="tab" data-tab="full">Full Code</button>
         </div>
         <pre id="abap-output"><code id="abap-code">* Paste JSON and click "Convert to ABAP"</code></pre>
+
+        <div class="info-panel">
+          <h3>References & Best Practices</h3>
+          <ul>
+            <li><strong>S/4HANA Cloud ABAP:</strong> <a href="https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/b3b824fb2b244bc0a95667567cdb9103.html" target="_blank" rel="noopener">SAP Help – JSON in ABAP</a></li>
+            <li><strong>xco_cp_json:</strong> <a href="https://software-heroes.com/en/blog/abap-cloud-json-conversion" target="_blank" rel="noopener">ABAP Cloud JSON Conversion</a> • <a href="https://community.sap.com/t5/application-development-and-automation-discussions/ui2-cl-json-v-s-xco-library-class-xco-cp-json-recommended-approach-for-abap/td-p/12767557" target="_blank" rel="noopener">SAP Community – xco_cp_json vs cl_json</a></li>
+            <li><strong>Best Practices:</strong> <a href="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/building-a-custom-http-service-using-s-4hana-cloud-public-edition-developer/ba-p/13554634" target="_blank" rel="noopener">Building HTTP Services in S/4HANA Cloud</a></li>
+          </ul>
+
+          <h3>Application Logic</h3>
+          <ol>
+            <li><strong>Parse JSON</strong> – Validates and parses the input JSON string.</li>
+            <li><strong>PascalCase → snake_case</strong> – Converts JSON keys (e.g. <code>TranDtls</code>, <code>ItemList</code>) to ABAP field names (<code>tran_dtls</code>, <code>item_list</code>) to match <code>xco_cp_json=>transformation->pascal_case_to_underscore</code>.</li>
+            <li><strong>Type inference</strong> – Maps JSON types to ABAP: <code>string</code>→<code>string</code>, <code>number</code> (integer)→<code>i</code>, <code>number</code> (decimal)→<code>decfloat16</code>, <code>boolean</code>→<code>abap_bool</code>, <code>object</code>→nested structure, <code>array</code>→<code>STANDARD TABLE OF ... WITH DEFAULT KEY</code>.</li>
+            <li><strong>Nested structures</strong> – Recursively generates <code>TYPES: BEGIN OF ty_xxx ... END OF ty_xxx</code> for objects; defines child types before parent for correct dependency order.</li>
+            <li><strong>Deserialize call</strong> – Outputs the <code>xco_cp_json=>data->from_string()->apply()->write_to()</code> pattern with PascalCase and boolean transformations.</li>
+          </ol>
+        </div>
       </section>
     </main>
 

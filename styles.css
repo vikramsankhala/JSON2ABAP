@@ -236,6 +236,55 @@ body {
   color: var(--text-primary);
 }
 
+/* Info panel - references & logic */
+.info-panel {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.info-panel h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.info-panel h3:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.info-panel ul,
+.info-panel ol {
+  margin: 0 0 0 1.25rem;
+  padding: 0;
+}
+
+.info-panel li {
+  margin-bottom: 0.35rem;
+}
+
+.info-panel a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.info-panel a:hover {
+  text-decoration: underline;
+}
+
+.info-panel code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: var(--bg-tertiary);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
 /* Syntax highlighting for ABAP */
 #abap-code .abap-keyword { color: var(--accent); }
 #abap-code .abap-type { color: var(--sap-orange); }
